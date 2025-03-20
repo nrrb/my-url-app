@@ -134,10 +134,25 @@ function URLForm() {
         size="small"
       />
       {generatedUrl && (
-        <Link href={generatedUrl} target="_blank" rel="noopener" variant="body2">
+        <Link href={generatedUrl} target="_blank" rel="noopener" variant="body2" sx={{ mb: 2, display: 'block' }}>
           Open Generated URL
         </Link>
       )}
+      <Typography variant="caption" display="block" align="center" sx={{ mt: 2 }}>
+        Made by{' '}
+        <Link href="https://www.linkedin.com/in/nicholasrrbennett/" target="_blank" rel="noopener">
+          Nicholas Bennett
+        </Link>{' '}
+        with{' '}
+        <Link href="https://chatgpt.com/" target="_blank" rel="noopener">
+          ChatGPT
+        </Link>{' '}
+        (code on{' '}
+        <Link href="https://github.com/nrrb/my-url-app" target="_blank" rel="noopener">
+          github
+        </Link>
+        )
+      </Typography>
     </Container>
   );
 }
