@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# My URL App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This was generated with the following [ChatGPT](https://chatgpt.com/) prompt:
 
-## Available Scripts
+You are an expert React developer. I want you to generate a complete React project that meets the following requirements. The project should be created using Create React App and use Material-UI (MUI) for styling.
 
-In the project directory, you can run:
+**Project Overview:**
 
-### `npm start`
+Create a URL Query Parameter Editor application with the following features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **URL Input:**  
+   - A multiline text input where a user can paste a URL (e.g., a LinkedIn jobs search URL).
+   - When a URL with query string parameters is pasted, the app should parse the URL and display individual text input rows for each query parameter. Each row should have two text fields:
+     - One for the parameter name (label: "Parameter Name")
+     - One for the parameter value (label: "Parameter Value")
+   - Users can edit the values in these text fields.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Add Parameter:**  
+   - A “+” button (using Material-UI's AddIcon) that allows the user to add a new, empty query parameter row.
 
-### `npm test`
+3. **Generated URL:**  
+   - A second multiline text input that displays the generated URL formed by combining the base URL and all current query parameter values. This field should update as the user edits parameters.
+   - Below this field, add a clickable link that opens the generated URL in a new tab.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Special f_TPR Handling:**  
+   - If a query parameter with the key `"f_TPR"` exists, modify the row as follows:
+     - The entire row should have a yellow background.
+     - Before the row appears, add an explanation text in a `<Typography>` element with a yellow background that reads:  
+       **Change this to number of seconds you want your job search range to be (keep the leading "r"):**
+     - Ensure that this explanation text appears above the text inputs for the `"f_TPR"` parameter.
 
-### `npm run build`
+5. **Footer:**  
+   - At the bottom of the page, include a footer that says:  
+     *Made by Nicholas Bennett with ChatGPT (code on github)*  
+   - The text should have hyperlinks:  
+     - “Nicholas Bennett” links to `https://www.linkedin.com/in/nicholasrrbennett/`  
+     - “ChatGPT” links to `https://chatgpt.com/`  
+     - “code on github” links to `https://github.com/nrrb/my-url-app`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+6. **Responsive Design:**  
+   - Use Material-UI components (such as Container, Grid, Typography, TextField, Button, IconButton, and Link) to ensure the layout is responsive for mobile devices.
+   - Use tight spacing so that more content fits on the screen at once.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Additional Instructions:**
+- Generate the code for a component called `URLForm.js` that implements the described functionality.
+- Also, show how to integrate `URLForm` into the main `App.js` file.
+- Include installation instructions for Material-UI dependencies.
+- Make sure to use functional React components and hooks (`useState`, `useEffect`).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please output the entire code for the project along with explanations for any important parts. This prompt should yield the full code for a working URL Query Parameter Editor React application that meets all the requirements.
