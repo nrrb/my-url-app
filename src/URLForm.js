@@ -99,7 +99,7 @@ function URLForm() {
                 p: 0.5
               }}
             >
-              Change this to number of seconds you want your job search range to be (keep the leading "r"). For example, 86400 is 24 hours, 3600 is 1 hour:
+              Change this to number of seconds you want your job search range to be (keep the leading "r"). For example, 86400 is 24 hours, 28800 is 8 hours, 3600 is 1 hour:
             </Typography>
           )}
           <Grid
