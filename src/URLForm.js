@@ -68,7 +68,7 @@ function URLForm() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 2, mb: 2 }}>
+    <Container maxWidth="sm" sx={{ mt: 2, mb: 2, p: 2 }}>
       <Typography variant="h6" gutterBottom>
         URL Query Parameter Editor
       </Typography>
@@ -87,33 +87,59 @@ function URLForm() {
         Query Parameters
       </Typography>
       {params.map((param, index) => (
-        <Grid container spacing={0.5} key={index} alignItems="center" sx={{ mb: 0.5 }}>
-          <Grid item xs={5}>
-            <TextField
-              label="Parameter Name"
-              value={param.key}
-              onChange={(e) => handleParamChange(index, 'key', e.target.value)}
-              fullWidth
-              variant="outlined"
-              size="small"
-            />
+        <React.Fragment key={index}>
+          {param.key === "f_TPR" && (
+            <Typography
+              variant="caption"
+              sx={{
+                mb: 1,
+                display: 'block',
+                fontWeight: "bold",
+                backgroundColor: "yellow",
+                p: 0.5
+              }}
+            >
+              Change this to number of seconds you want your job search range to be (keep the leading "r"). For example, 86400 is 24 hours, 3600 is 1 hour:
+            </Typography>
+          )}
+          <Grid
+            container
+            spacing={0.5}
+            alignItems="center"
+            sx={{
+              mb: 0.5,
+              backgroundColor: param.key === "f_TPR" ? "yellow" : "inherit"
+            }}
+          >
+            <Grid item xs={5}>
+              <TextField
+                label="Parameter Name"
+                value={param.key}
+                onChange={(e) => handleParamChange(index, 'key', e.target.value)}
+                fullWidth
+                variant="outlined"
+                size="small"
+                InputLabelProps={{ shrink: true }}
+              />
+            </Grid>
+            <Grid item xs={5}>
+              <TextField
+                label="Parameter Value"
+                value={param.value}
+                onChange={(e) => handleParamChange(index, 'value', e.target.value)}
+                fullWidth
+                variant="outlined"
+                size="small"
+                InputLabelProps={{ shrink: true }}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <IconButton onClick={() => removeParameter(index)} aria-label="remove parameter" size="small">
+                <RemoveIcon fontSize="small" />
+              </IconButton>
+            </Grid>
           </Grid>
-          <Grid item xs={5}>
-            <TextField
-              label="Parameter Value"
-              value={param.value}
-              onChange={(e) => handleParamChange(index, 'value', e.target.value)}
-              fullWidth
-              variant="outlined"
-              size="small"
-            />
-          </Grid>
-          <Grid item xs={2}>
-            <IconButton onClick={() => removeParameter(index)} aria-label="remove parameter" size="small">
-              <RemoveIcon fontSize="small" />
-            </IconButton>
-          </Grid>
-        </Grid>
+        </React.Fragment>
       ))}
       <Button variant="contained" startIcon={<AddIcon />} onClick={addParameter} sx={{ mb: 1 }} size="small">
         Add Parameter
